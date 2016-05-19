@@ -52,7 +52,7 @@ public class ControlAlien : MonoBehaviour
 			GetComponent<AudioSource> ().Play ();
 
 			// Sumar la puntuación al marcador
-			marcador.GetComponent<ControlMarcador> ().puntos += puntos;
+ 			marcador.GetComponent<ControlMarcador> ().puntos += puntos;
 
 			// El disparo desaparece (cuidado, si tiene eventos no se ejecutan)
 			Destroy (coll.gameObject);
