@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ControlNave : MonoBehaviour
 {
 
+	public Text marcador;
 	// Velocidad a la que se desplaza la nave (medido en u/s)
 	private float velocidad = 20f;
 
@@ -88,14 +90,16 @@ public class ControlNave : MonoBehaviour
 
 
             gameOver.SetActive(true);
+			gameOver.GetComponentInChildren<Text>().text = marcador.text;
+			if (PlayerPrefs.GetInt ("record") < marcador.GetComponent<ControlMarcador> ().puntos) {
+				PlayerPrefs.SetInt ("record",marcador.GetComponent<ControlMarcador> ().puntos);
+			}
 
-            // parar los aliens.
-        //   GameObject[] aliens;
-          //  aliens = GameObject.Find("Alien1");
-                   var aliens = GameObject.FindGameObjectsWithTag("alien");
+  	
+			GameObject[] aliens = GameObject.FindGameObjectsWithTag("alien");
                 foreach (GameObject a in aliens) { 
 
-				a.GetComponent<ControlAlien> ().enabled = false;
+				Destroy (a);
      }
             // destruir nave
             Destroy (gameObject);
