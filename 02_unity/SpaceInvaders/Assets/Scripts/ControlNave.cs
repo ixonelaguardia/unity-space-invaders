@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ControlNave : MonoBehaviour
 {
+	public GameObject m;
 
 	public Text marcador;
 	// Velocidad a la que se desplaza la nave (medido en u/s)
@@ -90,10 +91,15 @@ public class ControlNave : MonoBehaviour
 
 
             gameOver.SetActive(true);
-			gameOver.GetComponentInChildren<Text>().text = marcador.text;
-			if (PlayerPrefs.GetInt ("record") < marcador.GetComponent<ControlMarcador> ().puntos) {
-				PlayerPrefs.SetInt ("record",marcador.GetComponent<ControlMarcador> ().puntos);
-			}
+		
+		
+		//	gameOver.GetComponentInChildren<Text>().text = marcador.text;
+		//	int p =	m.GetComponent<ControlMarcador> ().puntos;
+		//	print (p);
+			if (PlayerPrefs.GetInt ("record") < m.GetComponent<ControlMarcador> ().puntos) {
+	
+			PlayerPrefs.SetInt ("record",m.GetComponent<ControlMarcador> ().puntos);
+		}
 
   	
 			GameObject[] aliens = GameObject.FindGameObjectsWithTag("alien");

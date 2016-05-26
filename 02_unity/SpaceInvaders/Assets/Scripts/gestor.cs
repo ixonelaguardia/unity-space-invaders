@@ -9,14 +9,14 @@ public class gestor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		print ("entra");
-		if (PlayerPrefs.GetInt ("record") == null)
+		if (PlayerPrefs.GetInt ("record") == 0)
 			PlayerPrefs.SetInt ("record", 0);
-			record.text = "record: "+ PlayerPrefs.GetInt("record");
+			record.text = "record: " + PlayerPrefs.GetInt ("record");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		record.text = "record: " + PlayerPrefs.GetInt ("record");
 	}
 	public void cerrar(){
 		Application.Quit ();
