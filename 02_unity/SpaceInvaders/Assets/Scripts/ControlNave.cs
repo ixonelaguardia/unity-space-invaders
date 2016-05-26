@@ -98,7 +98,7 @@ public class ControlNave : MonoBehaviour
 		//	print (p);
 			if (PlayerPrefs.GetInt ("record") < m.GetComponent<ControlMarcador> ().puntos) {
 	
-			PlayerPrefs.SetInt ("record",m.GetComponent<ControlMarcador> ().puntos);
+			PlayerPrefs.SetInt("record",m.GetComponent<ControlMarcador> ().puntos);
 		}
 
   	
